@@ -1,0 +1,13 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+ul li.ticked{
+    background: darkgrey;
+    color: red;
+    text-decoration: line-through;
+}
+
