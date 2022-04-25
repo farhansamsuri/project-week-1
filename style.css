@@ -1,13 +1,48 @@
+body {
+    /* background-image: linear-gradient(to bottom, red, orange, red); */
+}
 
 * {
     box-sizing: border-box;
+   
+}
+
+#pomo {
+    border: 2px solid black;
+    padding: none;
+    margin-top: 100px;
+    margin: auto;
+    text-align: center;
+    height: 800px;
 }
 
 
+#tasks {
+    margin: auto;
+    text-align: center;
+    height: 20%;
+}
+/* h2 {
+    margin: auto;
+    text-align: center;
+}
 
+ul li{
+    margin: auto;
+    text-align: center;
+} */
+
+
+//when list is checked, strikeout.
 ul li.ticked{
     background: darkgrey;
     color: red;
     text-decoration: line-through;
 }
 
+#settings {
+    border: 2px solid brown;
+    margin-left: auto;
+    text-align: center;
+    height: 20%;
+}
