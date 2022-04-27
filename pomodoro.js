@@ -61,6 +61,7 @@ const startStop = document.querySelector('#startStop');
 const mainID = document.querySelector('#mainTimer');
 const restID = document.querySelector('#restTimer');
 const sessionsID = document.querySelector('#sessions');
+const changeBody = document.querySelector("body");
 
 
 let startMinutes = .1;
@@ -71,8 +72,14 @@ let start = false;
 let n = 1;
 let rest = false;
 
-timerID.innerText = `${startMinutes}:00`;
+const displayTime = () => {if (startMinutes < 10){
+    
+    timerID.innerText = `0${startMinutes}:00`;
+} else {timerID.innerText = `${startMinutes}:00`}
+
 sessionsID.innerText = `Session No: ${n}`;
+}
+displayTime();
 
 //Main Timer
 const updateTimer = () => {
@@ -89,6 +96,10 @@ const updateTimer = () => {
     console.log('restTime:', restTime);
     }
 
+
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
     if (seconds < 10) {
     seconds = '0' + seconds;
 }
@@ -98,15 +109,26 @@ timerID.innerText = `${minutes}:${seconds}`;
 if (time < 0 || restTime < 0) {
     clearInterval(startTimer);
     time = startMinutes * 60;
-    rest = !rest;
     restTime = restMinutes * 60;
-    timerID.innerText = `${rest ? restMinutes : startMinutes}:00`;
+    rest = !rest;
+    if (startMinutes < 10 || restMinutes < 10){
+    timerID.innerText = `0${rest ? restMinutes : startMinutes}:00`;
+    } else {
+    timerID.innerText = `${rest ? restMinutes : startMinutes}:00`;        
+    }
+
+    if (rest === true){
+        changeBody.style.backgroundColor = 'rgb(0, 0, 0)';
+    } else if (rest === false){
+        changeBody.style.backgroundColor = 'rgb(217, 85, 80)';
+    }
+
     rest ? n = n : n++;
     sessionsID.innerText = `Session No: ${n}`;
+
     start = !start;
     console.log(`startMinutes ${startMinutes}, restMinutes ${restMinutes}`);
 }
-
 }
 
 // Start/Pause/Stop Function
@@ -127,7 +149,7 @@ const setMain = () => {
     console.log(parseInt(mainID.value));
     startMinutes = parseInt(mainID.value);
     time = startMinutes * 60;
-    timerID.innerHTML = `${startMinutes}:00`;
+/*     timerID.innerHTML = `${startMinutes}:00`; */
 }
 
 //Rest Timer
@@ -135,7 +157,7 @@ const setRest = () => {
     console.log(parseInt(restID.value));
     restMinutes = parseInt(restID.value);
     restTime = restMinutes * 60;
-    if (rest === true){
+/*     if (rest === true){
         timerID.innerHTML = `${restMinutes}:00`;
-    }   
+    }    */
 }

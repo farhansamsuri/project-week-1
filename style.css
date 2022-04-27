@@ -1,35 +1,50 @@
-
-
 * {
     box-sizing: border-box;
-   
+}
+
+body {
+    background-color: rgb(217, 85, 80);
+    font-family: 'ArialRounded', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+font-weight: 400;
+}
+
+.bodyBlue {
+    background-color: blue;
+    font-family: 'ArialRounded', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-weight: 400;
+}
+
+#pomoFull {
+    flex-direction: column;
 }
 
 #pomo {
-    border: 2px solid black;
-    padding: none;
-    margin-top: 100px;
-    margin: auto;
+    background-color: rgb(200, 85, 80);
+    border: 5px lightgrey;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    display:flex;
+    align-items: center;
     text-align: center;
-    height: 800px;
-    background-color: white;
+    margin: auto;
+    padding: 10px 120px;
+    color: lightgrey;
+    font-size: 150px;
 }
 
+#startStop {
+    border: 2px solid pink;
+    margin: 1% 45%;
+    padding: 1%;
+    width: 10%;
+}
 
 #tasks {
     margin: auto;
     text-align: center;
     height: 20%;
 }
-/* h2 {
-    margin: auto;
-    text-align: center;
-}
-
-ul li{
-    margin: auto;
-    text-align: center;
-} */
 
 ul li {
   
@@ -38,22 +53,25 @@ ul li {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+  } 
 
 
-/* //when list is checked, strikeout. */
+/* when list is checked, strikeout. */
 
 .checked {
-    border: 2px solid black;
-    background: black;
-    color: red;
     text-decoration: line-through;
 }
 
 
 #settings {
-    border: 2px solid brown;
-    margin-left: auto;
+/*     border: 2px solid brown; */
+    margin: auto;
     text-align: center;
     height: 20%;
+}
+
+#input {
+    margin: 0;
+    width: 50%;
+    
 }
