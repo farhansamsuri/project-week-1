@@ -13,8 +13,8 @@
     <h3 id="sessions">Session No. </h3>
     <!--  1st Div Pomodoro -->
     <div id="placeholder">
-        <div id="pomo">25:00</div>
-        <button>Start/Stop</button>
+        <div id="pomo"></div>
+        <button id="startStop" onclick="startFunc()">Start/Stop</button>
     </div>
 
    <!--  2nd Div - Tasks -->
@@ -30,8 +30,18 @@
     <!--  3rd Div - Settings - add new task, adjust timer. -->
     <div id="settings">Settings
     <h2></h2>
+    <div>
     <input type="text" id="input" placeholder="Add Task Here...">
-        <span onclick="newInput()" class="button">Add Task</span>
+        <button onclick="newInput()" class="button">Add Task</button>
+        </div>
+        <div>
+        <input type="text" id="mainTimer" placeholder="Change Timer">
+        <button onclick="setMain()" class="button">Edit Main Timer</button>
+        </div>
+        <div>
+        <input type="text" id="restTimer" placeholder="Change Timer">
+        <button onclick="setRest()" class="button">Edit Rest Timer</button>
+        </div>
         <!-- add one more div for the POMO settings-->
     </div>
 </body>

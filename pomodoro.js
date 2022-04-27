@@ -11,10 +11,9 @@ const todoList = document.querySelector("#ul");
 
 //Event Listeners
 todoList.addEventListener('click', addCheck);
-/* todoList.addEventListener('click', removeList); */
 
 //Functions
-//newInput function creates new task to the to-do list.
+//function creates new task to the to-do list.
 const newInput = () => {
     
     //creates a new li, then append
@@ -54,15 +53,89 @@ function addCheck(e) {
 
 //Timer 
 
-const startMinutes = 25;
-let time = startMinutes * 60;
+
+//Variables, Selectors
 
 const timerID = document.querySelector('#pomo');
+const startStop = document.querySelector('#startStop');
+const mainID = document.querySelector('#mainTimer');
+const restID = document.querySelector('#restTimer');
+const sessionsID = document.querySelector('#sessions');
 
+
+let startMinutes = .1;
+let restMinutes = .2;
+let time = startMinutes * 60;
+let restTime = restMinutes * 60;
+let start = false;
+let n = 1;
+let rest = false;
+
+timerID.innerText = `${startMinutes}:00`;
+sessionsID.innerText = `Session No: ${n}`;
+
+//Main Timer
 const updateTimer = () => {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    coun
+    if (rest === false){
+    minutes = Math.floor(time / 60);
+    seconds = time % 60;
     time --;
+    console.log('time:', time);
+
+    } else if (rest === true){
+    minutes = Math.floor(restTime / 60);
+    seconds = restTime % 60;
+    restTime --;
+    console.log('restTime:', restTime);
+    }
+
+    if (seconds < 10) {
+    seconds = '0' + seconds;
+}
+
+timerID.innerText = `${minutes}:${seconds}`;
+
+if (time < 0 || restTime < 0) {
+    clearInterval(startTimer);
+    time = startMinutes * 60;
+    rest = !rest;
+    restTime = restMinutes * 60;
+    timerID.innerText = `${rest ? restMinutes : startMinutes}:00`;
+    rest ? n = n : n++;
+    sessionsID.innerText = `Session No: ${n}`;
+    start = !start;
+    console.log(`startMinutes ${startMinutes}, restMinutes ${restMinutes}`);
+}
+
+}
+
+// Start/Pause/Stop Function
+const startFunc = () => {
+    if (start === false){
+startTimer = setInterval(updateTimer, 1000);
+start = true;
+console.log('startMinutes:', startMinutes, 'time', time);
+    } else if (start === true){
+        clearInterval(startTimer);
+        start = false;
+    }
+}
+
+
+// Setting, Editing Function
+const setMain = () => {
+    console.log(parseInt(mainID.value));
+    startMinutes = parseInt(mainID.value);
+    time = startMinutes * 60;
+    timerID.innerHTML = `${startMinutes}:00`;
+}
+
+//Rest Timer
+const setRest = () => {
+    console.log(parseInt(restID.value));
+    restMinutes = parseInt(restID.value);
+    restTime = restMinutes * 60;
+    if (rest === true){
+        timerID.innerHTML = `${restMinutes}:00`;
+    }   
 }
