@@ -1,6 +1,4 @@
-body {
-    /* background-image: linear-gradient(to bottom, red, orange, red); */
-}
+
 
 * {
     box-sizing: border-box;
@@ -14,6 +12,7 @@ body {
     margin: auto;
     text-align: center;
     height: 800px;
+    background-color: white;
 }
 
 
@@ -32,13 +31,25 @@ ul li{
     text-align: center;
 } */
 
+ul li {
+  
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-//when list is checked, strikeout.
-ul li.ticked{
-    background: darkgrey;
+
+/* //when list is checked, strikeout. */
+
+.checked {
+    border: 2px solid black;
+    background: black;
     color: red;
     text-decoration: line-through;
 }
+
 
 #settings {
     border: 2px solid brown;
