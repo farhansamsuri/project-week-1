@@ -1,6 +1,5 @@
 // Countdown Timer https://www.educative.io/edpresso/how-to-create-a-countdown-timer-using-javascript and https://www.youtube.com/watch?v=x7WJEmxNlEs
 // To Do List https://www.w3schools.com/howto/howto_js_todolist.asp
-// Special thanks to : Joy, 
 
 //TO DO LIST CODE:
 
@@ -51,7 +50,9 @@ function addCheck(e) {
 }
 
 
-//Timer 
+
+
+//Timer Code
 
 
 //Variables, Selectors
@@ -68,8 +69,8 @@ let startMinutes = .1;
 let restMinutes = .2;
 let time = startMinutes * 60;
 let restTime = restMinutes * 60;
-let start = false;
 let n = 1;
+let start = false;
 let rest = false;
 
 const displayTime = () => {if (startMinutes < 10){
@@ -118,9 +119,9 @@ if (time < 0 || restTime < 0) {
     }
 
     if (rest === true){
-        changeBody.style.backgroundColor = 'rgb(0, 0, 0)';
+        changeBody.style.background = 'linear-gradient(to right, #360033, #0b8793)';
     } else if (rest === false){
-        changeBody.style.backgroundColor = 'rgb(217, 85, 80)';
+        changeBody.style.background = 'linear-gradient(to right, #f2709c, #ff9472)';
     }
 
     rest ? n = n : n++;
@@ -149,7 +150,10 @@ const setMain = () => {
     console.log(parseInt(mainID.value));
     startMinutes = parseInt(mainID.value);
     time = startMinutes * 60;
-/*     timerID.innerHTML = `${startMinutes}:00`; */
+    if (startMinutes < 10 && startMinutes.charAt(0) === 0){
+        startMinutes = '0' + startMinutes;
+    }
+    timerID.innerHTML = `${startMinutes}:00`;
 }
 
 //Rest Timer
@@ -157,7 +161,10 @@ const setRest = () => {
     console.log(parseInt(restID.value));
     restMinutes = parseInt(restID.value);
     restTime = restMinutes * 60;
-/*     if (rest === true){
+    if (restMinutes < 10 && restMinutes.charAt(0) === 0){
+        restMinutes = '0' + restMinutes;
+    }
+    if (rest === true){
         timerID.innerHTML = `${restMinutes}:00`;
-    }    */
+    }   
 }
