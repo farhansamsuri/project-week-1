@@ -66,7 +66,7 @@ const changeBody = document.querySelector("body");
 
 
 let startMinutes = .1;
-let restMinutes = .2;
+let restMinutes = .1;
 let time = startMinutes * 60;
 let restTime = restMinutes * 60;
 let n = 1;
@@ -109,6 +109,8 @@ timerID.innerText = `${minutes}:${seconds}`;
 
 if (time < 0 || restTime < 0) {
     clearInterval(startTimer);
+    startMinutes = startMinutes - '0';
+    restMinutes = restMinutes - '0';
     time = startMinutes * 60;
     restTime = restMinutes * 60;
     rest = !rest;
@@ -150,10 +152,12 @@ const setMain = () => {
     console.log(parseInt(mainID.value));
     startMinutes = parseInt(mainID.value);
     time = startMinutes * 60;
-    if (startMinutes < 10 && startMinutes.charAt(0) === 0){
+    if (startMinutes < 10 /* && startMinutes.charAt(0) != 0 */){
         startMinutes = '0' + startMinutes;
     }
+    if (rest === false){
     timerID.innerHTML = `${startMinutes}:00`;
+    }
 }
 
 //Rest Timer
@@ -161,7 +165,8 @@ const setRest = () => {
     console.log(parseInt(restID.value));
     restMinutes = parseInt(restID.value);
     restTime = restMinutes * 60;
-    if (restMinutes < 10 && restMinutes.charAt(0) === 0){
+    console.log('rest:', rest);
+    if (restMinutes < 10 /* && restMinutes.charAt(0) != '0' */){
         restMinutes = '0' + restMinutes;
     }
     if (rest === true){

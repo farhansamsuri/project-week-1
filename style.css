@@ -10,7 +10,7 @@ font-weight: 400;
 
 #pomoFull {
     flex-direction: column;
-    background: rgba(200, 85, 80, 0.1);
+    background: rgba(200, 85, 80, 0.2);
     border: 5px lightgrey;
     width: 600px;
     height: 600px;
@@ -94,17 +94,16 @@ h3 {
 
 
 #settings {
-    border: 2px solid brown;
+/*     border: 2px solid brown; */
     text-align: center;
-    height: 20%;
     display: flex;
     flex-direction: row;
-    padding: 0% 20%;
     margin: auto;
+    width: 100%;
 }
 
 #input {
-    border: 2px solid yellow;
+/*     border: 2px solid yellow; */
     margin-left: 20%;
     width: 500px;
     padding: 10px;
@@ -130,12 +129,12 @@ h3 {
 
 #buttonTask {
 /*     border: 2px solid purple; */
-    padding: 10px;
-    width: 15%;
-    float: right;
+    padding: 5px;
+    width: 20%;
     font-size: 20px;
     cursor: pointer;
-    border-radius: 0;
+    align-items: center;
+    text-align: center;
 }
 
 #timers {
@@ -145,11 +144,11 @@ h3 {
 }
 
 .editTimers {
-    border: 1px solid grey;
+/*     border: 1px solid grey; */
     height: 50%;
     margin: auto;
     width: 100%;
-    padding-left: 100px;
+    padding: 10px;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -161,10 +160,28 @@ h3 {
 }
 
 #todoList {
-    border: 3px solid green;
+/*     border: 3px solid green; */
     display: flex;
     flex-direction: column;
     margin: auto;
+}
+
+@media only screen and (max-width: 990px) {
+
+
+    #input {
+        width: 60%;
+    }
+
+    #pomoFull {
+        /*     border: 5px lightgrey; */
+            width: 400px;
+            height: 400px;
+    }
+
+    #pomo {
+        font-size: 65px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -174,19 +191,16 @@ h3 {
 
     }
     #input {
-        margin-left: 0%;
-        width: 180px;
+        width: 60%;
     }
 
     ul li {
         width: 100%;
     }
 
-    #timers {
-        margin-left:0%;
-    }
     .bothTimer {
         width: 300px;
+
     }
 
     #pomoFull {
@@ -202,4 +216,14 @@ h3 {
     #startStop {
         width: 80px;
     }
+
+    #timers {
+        /*     border: 2px solid blue; */
+            margin: auto;
+            width: 50%;
+        }
+
+     #buttonTask {
+        width: 80px;
+        }
 }
