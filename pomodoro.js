@@ -65,8 +65,8 @@ const sessionsID = document.querySelector('#sessions');
 const changeBody = document.querySelector("body");
 
 
-let startMinutes = .1;
-let restMinutes = .1;
+let startMinutes = 25;
+let restMinutes = 5;
 let time = startMinutes * 60;
 let restTime = restMinutes * 60;
 let n = 1;
@@ -114,6 +114,7 @@ if (time < 0 || restTime < 0) {
     time = startMinutes * 60;
     restTime = restMinutes * 60;
     rest = !rest;
+
     if (startMinutes < 10 || restMinutes < 10){
     timerID.innerText = `0${rest ? restMinutes : startMinutes}:00`;
     } else {
@@ -134,7 +135,7 @@ if (time < 0 || restTime < 0) {
 }
 }
 
-// Start/Pause/Stop Function
+// Start/Stop Function
 const startFunc = () => {
     if (start === false){
 startTimer = setInterval(updateTimer, 1000);
@@ -147,7 +148,7 @@ console.log('startMinutes:', startMinutes, 'time', time);
 }
 
 
-// Setting, Editing Function
+// Setting, Editing Timer Functions
 const setMain = () => {
     console.log(parseInt(mainID.value));
     startMinutes = parseInt(mainID.value);
